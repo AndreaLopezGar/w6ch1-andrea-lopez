@@ -3,7 +3,7 @@ import { Actions } from '../actions/actions';
 import { Info } from '../info/info';
 import { Key } from '../key/key';
 import { Keyboard } from '../keyboard/keyboard';
-
+import './styles.scss';
 export default function App() {
   return (
     <div className="container">
