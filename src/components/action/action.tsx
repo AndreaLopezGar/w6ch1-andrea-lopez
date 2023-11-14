@@ -1,43 +1,27 @@
-import { useContext } from 'react';
-import { AppContext } from '../../context/app.context.provider';
+import { usePhone } from '../../hooks/app.hook';
+
 export function Action() {
-  const { numbersInput, setCallDisplay, setnumbersInput } =
-    useContext(AppContext);
-
-  function printCallingMessage() {
-    setCallDisplay(true);
-  }
-
-  function handleCall() {
-    if (numbersInput.length < 9) {
-      return;
-    }
-    printCallingMessage();
-    setnumbersInput(['']);
-  }
-
-  function handleHang() {
-    hideCallingMessage();
-  }
-
-  function hideCallingMessage() {
-    setCallDisplay(false);
-  }
+  const { callButton, hangButton, phoneState } = usePhone();
 
   return (
     <>
-      <span className="number">{numbersInput}</span>
       <a
+        onClick={() => callButton()}
         href="#"
-        className={numbersInput.length === 9 ? 'call active' : 'call'}
-        onClick={handleCall}
+        className={`${
+          phoneState.phone.length === 9 ? 'call active' : 'call hidden'
+        }`}
       >
         Call
       </a>
       <a
+        onClick={() => hangButton()}
         href="#"
-        className={numbersInput.length < 9 ? 'hang active' : 'hang'}
-        onClick={handleHang}
+        className={`${
+          phoneState.loadState === 'Calling...'
+            ? 'hang active'
+            : 'hang hidden off'
+        }`}
       >
         Hang
       </a>

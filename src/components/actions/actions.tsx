@@ -1,7 +1,11 @@
-type Props = {
-  children: JSX.Element;
-};
+import { Display } from '../../display/display';
+import { Action } from '../action/action';
 
-export function Actions({ children }: Props) {
-  return <div className="actions">{children}</div>;
+export function Actions() {
+  return (
+    <div className="actions" role="actions">
+      <Display></Display>
+      <Action></Action>
+    </div>
+  );
 }

@@ -1,8 +1,6 @@
-import { useContext } from 'react';
-import { AppContext } from '../../context/app.context.provider';
+import { usePhone } from '../../hooks/app.hook';
 
 export function Info() {
-  const { callDisplay } = useContext(AppContext);
-
-  return <span className={callDisplay ? 'message' : 'off'}>Calling...</span>;
+  const { phoneState } = usePhone();
+  return <span className="message">{phoneState.loadState}</span>;
 }
