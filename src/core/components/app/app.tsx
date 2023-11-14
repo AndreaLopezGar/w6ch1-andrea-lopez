@@ -1,21 +1,18 @@
-import { Action } from '../../../components/action/action';
-import { Actions } from '../../../components/actions/actions';
+import './styles.scss';
 import { Info } from '../../../components/info/info';
-import { Key } from '../../../components/key/key';
+import { Actions } from '../../../components/actions/actions';
 import { Keyboard } from '../../../components/keyboard/keyboard';
 
-export default function App() {
+function App() {
   return (
-    <div className="container">
+    <>
       <Info></Info>
       <main className="phone">
-        <Keyboard>
-          <Key></Key>
-        </Keyboard>
-        <Actions>
-          <Action></Action>
-        </Actions>
+        <Keyboard></Keyboard>
+        <Actions></Actions>
       </main>
-    </div>
+    </>
   );
 }
+
+export default App;

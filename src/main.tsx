@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { AppContextProvider } from './context/app.context';
-import App from './core/components/app/app';
-import './core/components/app/styles.scss';
+import { Provider } from 'react-redux';
+import App from './core/components/app/app.tsx';
+import { store } from './core/components/app/store/store.ts';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <AppContextProvider>
+    <Provider store={store}>
       <App />
-    </AppContextProvider>
+    </Provider>
   </React.StrictMode>
 );

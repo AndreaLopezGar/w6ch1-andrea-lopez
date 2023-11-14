@@ -1,11 +1,11 @@
-type Props = {
-  children: JSX.Element;
-};
+import { Key } from '../key/key';
 
-export function Keyboard({ children }: Props) {
+export function Keyboard() {
   return (
     <div className="keyboard-container">
-      <ol className="keyboard">{children}</ol>
+      <ol className="keyboard">
+        <Key></Key>
+      </ol>
     </div>
   );
 }
